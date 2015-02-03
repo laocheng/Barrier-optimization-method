@@ -3,11 +3,15 @@ A = [-rand(1)*5, 0.5; rand(1)*7, -2*rand(1); rand(1), rand(1); -1, -1];
 b = [1; 2; 3 ; 4];
 c = [1 ; 1]
 T = 1
+
+
 % Newton's method parameters
 maxIter = 150 ;
 tol = 1e-10 ;
 alpha = 0.1 ;
 beta = 0.5 ;
+
+
 %% Interior points parameters
 thresholdIP = 1e-5 %threshold for interior point method
 mu = 1.5
@@ -18,6 +22,8 @@ T_values = zeros(1, maxIter) ; %track values of T parameter
 N_Iterations = [] ; %used for the plotting
 prev_i = 0 ; %used for the plotting
 ord = [] ; %used for the plotting
+
+
 %% Solve the program using Interior Point method with Newton + backtracking at each step
 for j = 1:maxIter
     T_values(1,j) = T ;
@@ -33,6 +39,8 @@ for j = 1:maxIter
     x0 = x(:,i);
     end;
 end;
+
+
 %% Plot duality gap VS iterations number
 Figure1=figure(1);clf;
 set(Figure1,'defaulttextinterpreter','latex');
